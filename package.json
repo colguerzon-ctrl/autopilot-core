@@ -1,13 +1,1 @@
-{
-  "name": "autopilot-core",
-  "version": "1.0.0",
-  "private": true,
-  "scripts": {
-    "start": "node server.js",
-    "validate:railway": "node scripts/validate-railway.mjs"
-  },
-  "engines": {
-    "node": ">=22 <23",
-    "npm": ">=10 <11"
-  }
-}
+
