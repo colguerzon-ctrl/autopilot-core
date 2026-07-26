@@ -1,5 +1,5 @@
 {
-  "name": "autopilot-wallet",
+  "name": "autopilot-core",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -8,6 +8,6 @@
   },
   "engines": {
     "node": ">=22 <23",
-    "npm": ">=10"
+    "npm": ">=10 <11"
   }
 }
