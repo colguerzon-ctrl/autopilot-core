@@ -1,1 +1,24 @@
+import express from 'express';
+import healthRouter from './routes/health.js';
+import rulesRouter from './routes/rules.js';
+import auditRouter from './routes/audit.js';
+import { loadEnv } from './config/env.js';
 
+loadEnv();
+
+const app = express();
+app.use(express.json());
+
+app.use('/health', healthRouter);
+app.use('/rules', rulesRouter);
+app.use('/audit', auditRouter);
+
+app.get('/', (req, res) => {
+  res.json({ name: 'autopilot-core', ok: true });
+});
+
+const port = process.env.PORT || 3000;
+
+app.listen(port, '0.0.0.0', () => {
+  console.log(`autopilot-core listening on ${port}`);
+});
