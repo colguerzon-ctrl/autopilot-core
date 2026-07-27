@@ -4,7 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "node server.js",
+    "start": "node src/app.js",
+    "dev": "node src/app.js",
     "validate:railway": "node scripts/validate-railway.mjs"
   },
   "dependencies": {
