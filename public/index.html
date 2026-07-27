@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Tycoon - Earn Money Daily</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>💰 Business Tycoon</h1>
+                <div class="header-stats">
+                    <div class="stat">
+                        <span class="label">Money</span>
+                        <span class="value" id="money">$0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="label">Per Second</span>
+                        <span class="value" id="perSecond">$0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="label">Prestige</span>
+                        <span class="value" id="prestige">0</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Sidebar Navigation -->
+            <nav class="sidebar">
+                <button class="nav-btn active" data-tab="click">🖱️ Click</button>
+                <button class="nav-btn" data-tab="businesses">🏢 Businesses</button>
+                <button class="nav-btn" data-tab="shop">💳 Shop</button>
+                <button class="nav-btn" data-tab="leaderboard">🏆 Leaderboard</button>
+                <button class="nav-btn" data-tab="prestige">⭐ Prestige</button>
+            </nav>
+
+            <!-- Tab Content -->
+            <div class="content">
+                <!-- Click Tab -->
+                <div class="tab-content active" id="click-tab">
+                    <div class="click-section">
+                        <h2>Earn Money by Clicking</h2>
+                        <p class="subtitle">Each click earns you money!</p>
+                        <button class="click-btn" id="clickBtn">CLICK ME!
+                            <span class="click-value" id="clickValue">+$1</span>
+                        </button>
+                        <div class="click-stats">
+                            <p>Clicks so far: <strong id="clickCount">0</strong></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Businesses Tab -->
+                <div class="tab-content" id="businesses-tab">
+                    <div class="businesses-section">
+                        <h2>🏢 Your Businesses</h2>
+                        <div class="businesses-grid" id="businessesGrid"></div>
+                    </div>
+                </div>
+
+                <!-- Shop Tab -->
+                <div class="tab-content" id="shop-tab">
+                    <div class="shop-section">
+                        <h2>💳 Premium Shop</h2>
+                        <p class="subtitle">Buy premium currency to boost your earnings</p>
+                        <div class="shop-grid" id="shopGrid"></div>
+                    </div>
+                </div>
+
+                <!-- Leaderboard Tab -->
+                <div class="tab-content" id="leaderboard-tab">
+                    <div class="leaderboard-section">
+                        <h2>🏆 Top Players</h2>
+                        <table class="leaderboard-table">
+                            <thead>
+                                <tr>
+                                    <th>Rank</th>
+                                    <th>Player</th>
+                                    <th>Total Earned</th>
+                                    <th>Prestige</th>
+                                    <th>Per Second</th>
+                                </tr>
+                            </thead>
+                            <tbody id="leaderboardBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Prestige Tab -->
+                <div class="tab-content" id="prestige-tab">
+                    <div class="prestige-section">
+                        <h2>⭐ Prestige System</h2>
+                        <p class="subtitle">Reset your progress to gain permanent bonuses</p>
+                        <div class="prestige-info">
+                            <p>Current Prestige Level: <strong id="prestigeLevel">0</strong></p>
+                            <p>Prestige Gain Available: <strong id="prestigeGain">0</strong></p>
+                            <p>Bonus Multiplier: <strong id="prestigeMultiplier">1x</strong></p>
+                            <button class="prestige-btn" id="prestigeBtn" disabled>Prestige Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Payment Modal -->
+    <div class="modal" id="paymentModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Complete Your Purchase</h2>
+            <div id="card-element"></div>
+            <div id="card-errors" role="alert"></div>
+            <button class="modal-btn" id="submitBtn">Pay Now</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
